@@ -87,6 +87,9 @@ def main():
 
         # If the Genetic Algorithm button is pressed and the graph and goals are in the session state
         if gen_alg_button:
+
+            html_animation = st.session_state.graph.plot_graph(goals=st.session_state.goals, drones=ga_paths,animate=True)
+            st.markdown(html_animation, unsafe_allow_html=True)
             # Create drones object
             drones = ga.Drones('Drones', st.session_state.graph, st.session_state.graph.nodes['Hub'],
                                [st.session_state.graph.nodes[goal] for goal in st.session_state.goals],
@@ -112,7 +115,7 @@ def main():
     # If neither Genetic Algorithm button is pressed, generate plot from graph
     else:
         # Generate plot from graph
-        plot = st.session_state.graph.plot_graph(st.session_state.goals, None)
+        plot = st.session_state.graph.plot_graph(st.session_state.goals, None, True)
 
         # Display plot on streamlit
         st.pyplot(plot)
