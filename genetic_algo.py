@@ -8,7 +8,6 @@ def print_drone_paths(individual):
         print(f'Drone {drone.name} Path: {[node.name for node in drone.locations]}')
         print(f'Drone {drone.name} Path: {[node.name for node in drone.path]}')
 
-
 class Drones:
     # Initialize Drones object
     def __init__(self, name, graph: gp.Graph, initial_state: gp.Node, goals: [gp.Node], num_drones, mutation_rate):
